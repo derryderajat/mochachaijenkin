@@ -1,0 +1,25 @@
+{
+  "name": "mochachai",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Learn Mochachai",
+  "main": "index.js",
+  "scripts": {
+    "test": "node runner.mjs",
+    "report:generate": "npx allure generate reports/allure-results --clean -o reports/allure-report",
+    "report:open": "npx allure open reports/allure-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "chai": "^5.2.0",
+    "dotenv": "^17.0.0"
+  },
+  "devDependencies": {
+    "allure-js-commons": "^3.3.0",
+    "allure-mocha": "^3.3.0",
+    "mocha": "^11.7.1"
+  }
+}
