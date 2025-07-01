@@ -70,10 +70,12 @@ post {
     allure([
       includeProperties: false,
       jdk: '',
-      results: [[path: 'reports/allure-results']]
+      results: [[path: 'reports/allure-results']],
+      commandline: 'ALLURE_HOME' // <--- Tambahkan ini, harus sama dengan "Name" di Jenkins Tool Configuration
     ])
   }
 }
+
 
 
 }
