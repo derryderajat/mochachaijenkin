@@ -3,13 +3,14 @@ pipeline {
 
   environment {
     BASE_URL = 'https://sit.auto2000.co.id'
-    CUSTOMER_TOKEN = credentials('customer_token')
+    CUSTOMER_TOKEN = credentials('customer_token') // Ambil dari Jenkins Credentials
   }
 
+  stages {
     stage('Checkout') {
-        steps {
-            git branch: 'main', url: 'https://github.com/derryderajat/mochachaijenkin.git'
-        }
+      steps {
+        git branch: 'main', url: 'https://github.com/derryderajat/mochachaijenkin.git'
+      }
     }
 
     stage('Install dependencies') {
@@ -26,7 +27,7 @@ pipeline {
 
     stage('Generate Allure Report') {
       steps {
-        sh 'npx allure generate reports/allure-results --clean -o reports/allure-report'
+        sh 'npx allure generate reports/allure-results --clean -o reports/allure-report || true'
       }
     }
 
@@ -37,9 +38,10 @@ pipeline {
     }
   }
 
-//   post {
-//     always {
-//       junit 'reports/allure-results/*.xml' 
-//     }
-//   }
+  post {
+    always {
+      echo 'Pipeline finished'
+      // Bisa tambahkan notifikasi atau cleanup di sini
+    }
+  }
 }
