@@ -41,15 +41,17 @@ pipeline {
     }
 
     stage('Generate Allure Report') {
-      steps {
-        sh '''
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"
-          nvm use 20
+        steps {
+            sh '''
+            export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"
+            nvm use 20
 
-          npx allure generate reports/allure-results --clean -o reports/allure-report || true
-        '''
-      }
+            java -version
+            npx allure generate reports/allure-results --clean -o reports/allure-report || true
+            '''
+        }
     }
 
     stage('Archive Report') {
