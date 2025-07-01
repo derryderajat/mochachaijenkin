@@ -69,7 +69,7 @@ post {
     // Generate Allure report (plugin)
     allure([
       includeProperties: false,
-      jdk: '',
+      jdk: 'JAVA_HOME',
       results: [[path: 'reports/allure-results']],
       commandline: 'ALLURE_HOME' // <--- Tambahkan ini, harus sama dengan "Name" di Jenkins Tool Configuration
     ])
