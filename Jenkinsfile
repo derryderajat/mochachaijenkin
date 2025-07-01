@@ -38,9 +38,9 @@ pipeline {
     }
   }
 
-  post {
-    always {
-      junit 'reports/allure-results/*.xml' 
-    }
-  }
+//   post {
+//     always {
+//       junit 'reports/allure-results/*.xml' 
+//     }
+//   }
 }

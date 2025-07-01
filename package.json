@@ -20,6 +20,7 @@
   "devDependencies": {
     "allure-js-commons": "^3.3.0",
     "allure-mocha": "^3.3.0",
-    "mocha": "^11.7.1"
+    "mocha": "^11.7.1",
+    "mocha-junit-reporter": "^2.2.1"
   }
 }
