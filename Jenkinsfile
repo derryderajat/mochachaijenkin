@@ -61,10 +61,17 @@ pipeline {
     }
   }
 
+
 post {
   always {
     echo 'Pipeline finished'
-    allure includeProperties: false, jdk: '', reportBuildPolicy: 'ALWAYS', results: [[path: 'reports/allure-results']]
+
+    // Generate Allure report (plugin)
+    allure([
+      includeProperties: false,
+      jdk: '',
+      results: [[path: 'reports/allure-results']]
+    ])
   }
 }
 
