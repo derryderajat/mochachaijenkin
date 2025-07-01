@@ -54,4 +54,14 @@ pipeline {
 
     stage('Archive Report') {
       steps {
-        archiveArtifacts artifacts: 'reports/allure-report
+        archiveArtifacts artifacts: 'reports/allure-report/**/*.*', allowEmptyArchive: true
+      }
+    }
+  }
+
+  post {
+    always {
+      echo 'Pipeline finished'
+    }
+  }
+}
