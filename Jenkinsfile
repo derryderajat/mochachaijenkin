@@ -6,11 +6,10 @@ pipeline {
     CUSTOMER_TOKEN = credentials('customer_token')
   }
 
-  stages {
     stage('Checkout') {
-      steps {
-        git 'https://github.com/derryderajat/mochachaijenkin.git'
-      }
+        steps {
+            git branch: 'main', url: 'https://github.com/derryderajat/mochachaijenkin.git'
+        }
     }
 
     stage('Install dependencies') {
