@@ -1,0 +1,98 @@
+[
+  {
+    "summary": "Valid OTR_price as positive number should return 200",
+    "body": {
+      "car_price": 205800000,
+      "product_id": "YARIS",
+      "OTR_price": 205800000,
+      "down_payment": 44660300,
+      "city_id": "0083",
+      "productDiscount": 0,
+      "isAddm": true,
+      "monthlyIncome": null,
+      "isPrepaidInsurance": false,
+      "maxAge": null
+    },
+    "expectedStatus": 200
+  },
+  {
+    "summary": "OTR_price as null should return 400",
+    "body": {
+      "car_price": 205800000,
+      "product_id": "YARIS",
+      "OTR_price": null,
+      "down_payment": 44660300,
+      "city_id": "0083",
+      "productDiscount": 0,
+      "isAddm": true,
+      "monthlyIncome": null,
+      "isPrepaidInsurance": false,
+      "maxAge": null
+    },
+    "expectedStatus": 400
+  },
+  {
+    "summary": "OTR_price as 0 should return 400",
+    "body": {
+      "car_price": 205800000,
+      "product_id": "YARIS",
+      "OTR_price": 0,
+      "down_payment": 44660300,
+      "city_id": "0083",
+      "productDiscount": 0,
+      "isAddm": true,
+      "monthlyIncome": null,
+      "isPrepaidInsurance": false,
+      "maxAge": null
+    },
+    "expectedStatus": 400
+  },
+  {
+    "summary": "OTR_price as negative number should return 400",
+    "body": {
+      "car_price": 205800000,
+      "product_id": "YARIS",
+      "OTR_price": -100000000,
+      "down_payment": 44660300,
+      "city_id": "0083",
+      "productDiscount": 0,
+      "isAddm": true,
+      "monthlyIncome": null,
+      "isPrepaidInsurance": false,
+      "maxAge": null
+    },
+    "expectedStatus": 400
+  },
+  {
+    "summary": "OTR_price as string should return 400",
+    "body": {
+      "car_price": 205800000,
+      "product_id": "YARIS",
+      "OTR_price": "205800000",
+      "down_payment": 44660300,
+      "city_id": "0083",
+      "productDiscount": 0,
+      "isAddm": true,
+      "monthlyIncome": null,
+      "isPrepaidInsurance": false,
+      "maxAge": null
+    },
+    "expectedStatus": 400
+  },
+  {
+    "summary": "OTR_price as empty string should return 400",
+    "body": {
+      "car_price": 205800000,
+      "product_id": "YARIS",
+      "OTR_price": "",
+      "down_payment": 44660300,
+      "city_id": "0083",
+      "productDiscount": 0,
+      "isAddm": true,
+      "monthlyIncome": null,
+      "isPrepaidInsurance": false,
+      "maxAge": null
+    },
+    "expectedStatus": 400
+  }
+]

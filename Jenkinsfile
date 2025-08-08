@@ -1,11 +1,15 @@
 pipeline {
   agent any
 
-  environment {
-    BASE_URL = 'https://sit.auto2000.co.id'
-    CUSTOMER_TOKEN = credentials('customer_token') // Ambil dari Jenkins Credentials
-    NVM_DIR = "${env.HOME}/.nvm"
-  }
+environment {
+  BASE_URL = "${env.BASE_URL}"
+  CUSTOMER_TOKEN = "${env.CUSTOMER_TOKEN}"
+  OTP_CODE = "${env.OTP_CODE}"
+  OTP_TYPE = "${env.OTP_TYPE}"
+  PHONE_NUMBER = "${env.PHONE_NUMBER}"
+  ENCRYPTED_PASSWORD = "${env.ENCRYPTED_PASSWORD}"
+}
+
 
   stages {
     stage('Checkout') {
@@ -61,17 +65,15 @@ pipeline {
     }
   }
 
-
 post {
   always {
     echo 'Pipeline finished'
 
-    // Generate Allure report (plugin)
     allure([
       includeProperties: false,
       jdk: 'JAVA_HOME',
       results: [[path: 'reports/allure-results']],
-      commandline: 'ALLURE_HOME' // <--- Tambahkan ini, harus sama dengan "Name" di Jenkins Tool Configuration
+      commandline: 'ALLURE_HOME'
     ])
   }
 }

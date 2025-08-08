@@ -1,19 +1,20 @@
 import axios from 'axios';
 import * as chai from 'chai';
-import dotenv from 'dotenv';
-dotenv.config();
 
 const expect = chai.expect;
 
 describe('POST /finance-simulation', () => {
+    let token
+  before(async()=>{
+    token = await setterCustomerToken();
+  })
   it('should return 200 when request is successful', async () => {
     const url = `${process.env.BASE_URL}/auto2000commercewebservices/v2/auto2000/finance-simulation`;
 
     const headers = {
-      Authorization: process.env.CUSTOMER_TOKEN,
+      Authorization: token,
       'Content-Type': 'application/json',
     };
-
     const body = {
       car_price: 205800000,
       product_id: 'YARIS',
