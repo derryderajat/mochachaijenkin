@@ -5,7 +5,7 @@
   "description": "Learn Mochachai",
   "main": "index.js",
   "scripts": {
-    "test": "node runner.mjs && npx allure generate reports/allure-results --clean -o reports/allure-report",
+    "test": "node runner.mjs",
     "report:generate": "npx allure generate reports/allure-results --clean -o reports/allure-report",
     "report:open": "npx allure open reports/allure-report"
   },
